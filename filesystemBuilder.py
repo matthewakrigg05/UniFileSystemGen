@@ -1,30 +1,32 @@
-import os
 from pathlib import Path
 import workingDirectory
 import courseContext
 
 
-class filesystemBuilder:
-    directory = None
-    courseInfo = None  # contains all vars that decide how system is structured
-
-    def __init__(self, workingDir: workingDirectory.FileSystemDir, course: courseContext.courseContext):
-        self.directory = workingDir
-        self.courseInfo = course
+class fileSystemBuilder:
+    def __init__(self, working_dir: workingDirectory.FileSystemDir, course: courseContext.courseContext):
+        self.home_dir = Path(working_dir.homeDirectory) / "University"
+        self.course_info = course
+        self.weeks = course.weeksPerModule or 10
 
         self.buildFileSystem()
 
     def buildFileSystem(self):
-        file_path = Path(self.directory.homeDirectory + "\\University")
+        # Create base university directory
+        self.home_dir.mkdir(parents=True, exist_ok=True)
 
-        if not file_path.exists():
-            os.mkdir(self.directory.homeDirectory + "\\University")
+        # Create year/module/week structure - painful to look at though, i know
+        for year in range(1, self.course_info.numOfYears + 1):
+            year_path = self.home_dir / f"Year {year}"
+            year_path.mkdir(exist_ok=True)
 
-        for i in range(self.courseInfo.numOfYears):
-            if not Path(self.directory.homeDirectory + f"\\University\\Year {i + 1}").exists():
-                os.mkdir(self.directory.homeDirectory + f"\\University\\Year {i + 1}")
+            for module in range(1, self.course_info.modulesPerYear + 1):
+                module_path = year_path / f"Module {module}"
+                module_path.mkdir(exist_ok=True)
 
-        for dir in os.listdir(self.directory.homeDirectory + f"\\University"):
-            for i in range(self.courseInfo.modulesPerYear):
-                if not Path(self.directory.homeDirectory + f"\\University\\{dir}\\Module {i + 1}").exists():
-                    os.mkdir(self.directory.homeDirectory + f"\\University\\{dir}\\Module {i + 1}")
+                for week in range(1, self.weeks + 1):
+                    (module_path / f"Week {week}").mkdir(exist_ok=True)
+
+        # Create other top-level folders
+        for extra_folder in ["Other", "Clubs & Societies"]:
+            (self.home_dir / extra_folder).mkdir(exist_ok=True)

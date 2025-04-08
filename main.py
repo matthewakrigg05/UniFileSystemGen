@@ -7,7 +7,7 @@ def main():
     cwd = workingDirectory.FileSystemDir()
     course = courseContext.courseContext()
 
-    builder = filesystemBuilder.filesystemBuilder(cwd, course)
+    builder = filesystemBuilder.fileSystemBuilder(cwd, course)
 
     builder.buildFileSystem()
 
