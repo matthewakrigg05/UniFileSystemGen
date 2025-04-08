@@ -10,6 +10,3 @@ Plans:
 - [X] Directories for other, clubs and societies 
 - [ ] Simple GUI, more user friendly
 - [X] Modules have week by week, coursework, notes, exam prep dirs
-
-Here is a link to my trello board for this project so you can see where I'm up to:
-https://trello.com/b/bO4zqCO7/fsm
