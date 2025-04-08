@@ -20,3 +20,15 @@ class FileSystemDir:
             sys.exit()
 
         print(f"Welcome {userOS} user!")
+
+    @staticmethod
+    def buildFilesystemWindows():
+        pass
+
+    @staticmethod
+    def buildFilesystemMac():
+        pass
+
+    @staticmethod
+    def buildFilesystemLinux():
+        pass
