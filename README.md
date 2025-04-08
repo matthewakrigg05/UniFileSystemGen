@@ -1,7 +1,7 @@
 This is a small automation project written in python. The aim of the project is to create a simple application
 capable of building a file system for a user - assuming they are a university student. As it stands, 
 the application assumes that the user has no university directory at all, and so creates a new one in the
-users home directory. 
+users home directory. This application has yet to be tested on MAC and Linux BUT should work...
 
 Plans:
 
