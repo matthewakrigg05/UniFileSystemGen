@@ -80,6 +80,11 @@ class FileSystemGUI:
             messagebox.showerror("Error", "Please select a base directory.")
             return
 
+        university_path = Path(self.home_directory.get()) / "University"
+        if university_path.exists():
+            messagebox.showerror("Directory Exists", f"A 'University' folder already exists at:\n{university_path}\n\n")
+            return
+
         try:
             working_dir = FileSystemDir(self.home_directory.get())
             course = CourseContext(self.years.get(), self.modules.get(), self.weeks.get())
