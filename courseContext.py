@@ -7,5 +7,5 @@ class courseContext:
         self.gatherInfo()
 
     def gatherInfo(self):
-        self.numOfYears = input("How many years are you attending university? ")
-        self.modulesPerYear = input("How many modules in each year?")
+        self.numOfYears = int(input("How many years are you attending university? "))
+        self.modulesPerYear = int(input("How many modules in each year?"))
