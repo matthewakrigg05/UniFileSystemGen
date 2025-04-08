@@ -24,6 +24,10 @@ class fileSystemBuilder:
                 module_path = year_path / f"Module {module}"
                 module_path.mkdir(exist_ok=True)
 
+                # Add module subfolders
+                for subfolder in ["Coursework", "Notes", "Exam Prep"]:
+                    (module_path / subfolder).mkdir(exist_ok=True)
+
                 for week in range(1, self.weeks + 1):
                     (module_path / f"Week {week}").mkdir(exist_ok=True)
 
