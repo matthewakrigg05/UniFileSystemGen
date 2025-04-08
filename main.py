@@ -1,13 +1,16 @@
+import courseContext
 import filesystemBuilder
 import workingDirectory
 
+
 def main():
     cwd = workingDirectory.FileSystemDir()
-    print(cwd.homeDirectory)
+    course = courseContext.courseContext()
 
-    builder = filesystemBuilder.filesystemBuilder(cwd)
+    builder = filesystemBuilder.fileSystemBuilder(cwd, course)
 
     builder.buildFileSystem()
+
 
 if __name__ == '__main__':
     main()
