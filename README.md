@@ -8,5 +8,5 @@ Plans:
 - [ ] Allow for creation of one year at a time in a specified directory
 - [X] Take number of weeks each semester has and build folders for each week
 - [X] Directories for other, clubs and societies 
-- [ ] Simple GUI, more user friendly
+- [X] Simple GUI, more user friendly
 - [X] Modules have week by week, coursework, notes, exam prep dirs
