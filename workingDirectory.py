@@ -18,11 +18,7 @@ class FileSystemDir:
         validOS = ['Windows', 'Darwin', 'Linux']
 
         if userOS not in validOS:
-            print("Oh no, this application won't function correctly for your operating system. :(")
             sys.exit()
-
-        print(f"Welcome {userOS} user!")
 
     def findHomeDirectory(self):
         self.homeDirectory = os.path.expanduser('~')
-        print(f"Working in {self.homeDirectory}")
