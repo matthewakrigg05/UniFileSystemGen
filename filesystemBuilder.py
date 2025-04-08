@@ -13,3 +13,6 @@ class filesystemBuilder:
 
     def buildFileSystem(self):
         os.mkdir(self.directory.homeDirectory + "\\University")
+
+        for i in range(self.courseInfo.numOfYears - 1):
+            os.mkdir(self.directory.homeDirectory + f"\\University\\Year {i + 1}")

@@ -1,6 +1,7 @@
 import filesystemBuilder
 import workingDirectory
 
+
 def main():
     cwd = workingDirectory.FileSystemDir()
     print(cwd.homeDirectory)
@@ -8,6 +9,7 @@ def main():
     builder = filesystemBuilder.filesystemBuilder(cwd)
 
     builder.buildFileSystem()
+
 
 if __name__ == '__main__':
     main()
