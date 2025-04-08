@@ -5,7 +5,7 @@ import courseContext
 
 class fileSystemBuilder:
     def __init__(self, working_dir: workingDirectory.FileSystemDir, course: courseContext.courseContext):
-        self.home_dir = Path(working_dir.homeDirectory) / "University"
+        self.home_dir = Path(working_dir.directoryLocation) / "University"
         self.course_info = course
         self.weeks = course.weeksPerModule or 10
 

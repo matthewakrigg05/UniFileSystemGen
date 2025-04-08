@@ -4,21 +4,16 @@ import sys
 
 
 class FileSystemDir:
-    homeDirectory = None
-    operatingSystem = None
+    directoryLocation = None
 
-    def __init__(self):
-        self.operatingSystem = platform.system()  # Looking for: Windows, Darwin or Linux
+    def __init__(self, path):
         self.confirmOS()
+        self.directoryLocation = path
 
-        self.findHomeDirectory()  # build filesystem in home dir so it is easy to find for the user!
-
-    def confirmOS(self):
-        userOS = self.operatingSystem
+    @staticmethod
+    def confirmOS():
+        userOS = platform.system()  # Looking for: Windows, Darwin or Linux
         validOS = ['Windows', 'Darwin', 'Linux']
 
         if userOS not in validOS:
             sys.exit()
-
-    def findHomeDirectory(self):
-        self.homeDirectory = os.path.expanduser('~')
