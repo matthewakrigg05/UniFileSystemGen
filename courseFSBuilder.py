@@ -12,11 +12,11 @@ class FullFileSystemBuilder(FSBuilder):
 
     def buildFullFileSystem(self):
         # Create base university directory
-        self.home_dir.mkdir(parents=True, exist_ok=True)
+        self.targetDir.mkdir(parents=True, exist_ok=True)
 
         # Create year/module/week structure - painful to look at though, i know
         for year in range(1, self.courseInformation.numOfYears + 1):
-            year_path = self.home_dir / f"Year {year}"
+            year_path = self.targetDir / f"Year {year}"
             year_path.mkdir(exist_ok=True)
 
             for module in range(1, self.courseInformation.modulesPerYear + 1):
@@ -32,5 +32,5 @@ class FullFileSystemBuilder(FSBuilder):
 
         # Create other top-level folders
         for extra_folder in ["Other", "Clubs & Societies"]:
-            (self.home_dir / extra_folder).mkdir(exist_ok=True)
+            (self.targetDir / extra_folder).mkdir(exist_ok=True)
 

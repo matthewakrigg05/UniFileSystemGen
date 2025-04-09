@@ -1,4 +1,3 @@
-from pathlib import Path
 from FSBuilder import FSBuilder
 
 
@@ -12,7 +11,7 @@ class YearFileSystemBuilder(FSBuilder):
         self.buildSingleYearStructure()
 
     def buildSingleYearStructure(self):
-        yearPath = self.home_dir / f"Year {self.year_number}"
+        yearPath = self.targetDir / f"Year {self.year_number}"
         yearPath.mkdir(parents=True, exist_ok=True)
 
         for module_name in self.modules:
