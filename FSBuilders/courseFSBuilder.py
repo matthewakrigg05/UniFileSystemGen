@@ -1,4 +1,4 @@
-from FSBuilder import FSBuilder
+from FSBuilders.FSBuilder import FSBuilder
 
 
 class FullFileSystemBuilder(FSBuilder):

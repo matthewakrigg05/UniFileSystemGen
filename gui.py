@@ -1,9 +1,8 @@
 import tkinter as tk
 from tkinter import messagebox, filedialog
 from pathlib import Path
-import courseContext
-import workingDirectory
-import courseFSBuilder
+from utils import workingDirectory, courseContext
+from FSBuilders import courseFSBuilder
 
 
 # --- Tkinter GUI ---
