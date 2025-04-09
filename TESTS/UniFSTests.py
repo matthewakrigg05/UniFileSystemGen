@@ -2,7 +2,7 @@ import unittest
 import os
 from pathlib import Path
 from unittest.mock import MagicMock
-from filesystemBuilder import fileSystemBuilder
+from courseFSBuilder import fileSystemBuilder
 
 
 class TestFilesystemBuilder(unittest.TestCase):

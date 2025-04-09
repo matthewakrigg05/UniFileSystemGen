@@ -3,7 +3,7 @@ from tkinter import messagebox, filedialog
 from pathlib import Path
 import courseContext
 import workingDirectory
-import filesystemBuilder
+import courseFSBuilder
 
 
 # --- Tkinter GUI ---
