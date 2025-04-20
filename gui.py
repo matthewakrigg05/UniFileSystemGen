@@ -2,15 +2,11 @@ import tkinter as tk
 from tkinter import messagebox, filedialog
 from pathlib import Path
 from utils import workingDirectory, courseContext
-from FSBuilders import courseFSBuilder
+from FSBuilders import courseFSBuilder, yearFSBuilder
 
 
 # --- Tkinter GUI ---
 class FileSystemGUI:
-
-
-
-
     def __init__(self, root):
         self.root = root
         self.root.title("University Folder Structure Builder")
@@ -54,12 +50,15 @@ class FileSystemGUI:
         try:
             working_dir = workingDirectory.FileSystemDir(self.directoryLocation.get())
             course = courseContext.courseContext(self.years.get(), self.modules.get(), self.weeks.get())
-            builder = courseFSBuilder.FullFileSystemBuilder(working_dir, course)
-            messagebox.showinfo(
-                "Success",
-                f"Folder structure created successfully at:\n\n{builder.targetDir}"
-            )
-            self.root.quit()
+
+            if self.option.get() == 'multiple':
+                courseFSBuilder.FullFileSystemBuilder(working_dir, course)
+                self.root.quit()
+
+            else:
+                yearFSBuilder.YearFileSystemBuilder(working_dir, course)
+                self.root.quit()
+
         except Exception as e:
             messagebox.showerror("Error", f"An error occurred:\n{e}")
 
@@ -71,11 +70,6 @@ class FileSystemGUI:
     def validate_inputs(self):
         if not self.directoryLocation.get():
             messagebox.showerror("Error", "Please select a base directory.")
-            return
-
-        university_path = Path(self.directoryLocation.get()) / "University"
-        if university_path.exists():
-            messagebox.showerror("Directory Exists", f"A 'University' folder already exists at:\n{university_path}\n\n")
             return
 
     def on_selection_change(self):

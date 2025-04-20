@@ -3,8 +3,8 @@ from pathlib import Path
 
 class FSBuilder:
     targetDir = None
-    weeks = None
+    course = None
 
-    def __init__(self, targetDir, weeks):
-        self.targetDir = Path(targetDir.directoryLocation) / "University"
-        self.weeks = weeks
+    def __init__(self, targetDir, course):
+        self.targetDir = Path(targetDir.directoryLocation)
+        self.course = course

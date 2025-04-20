@@ -1,9 +1,9 @@
 class courseContext:
-    numOfYears = 0
-    modulesPerYear = 0
-    weeksPerModule = 0
+    years = 0
+    modules = 0
+    weeks = 0
 
-    def __init__(self, years, modules, weeks):
-        self.numOfYears = years
-        self.modulesPerYear= modules
-        self.weeksPerModule = weeks
+    def __init__(self, yrs, modules, weeks):
+        self.years = yrs
+        self.modules = modules
+        self.weeks = weeks
