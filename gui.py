@@ -7,6 +7,10 @@ from FSBuilders import courseFSBuilder
 
 # --- Tkinter GUI ---
 class FileSystemGUI:
+
+
+
+
     def __init__(self, root):
         self.root = root
         self.root.title("University Folder Structure Builder")
@@ -17,21 +21,26 @@ class FileSystemGUI:
         self.modules = tk.IntVar(value=4)
         self.weeks = tk.IntVar(value=10)
 
+        self.year_label = tk.Label(root, text="Number of Years:")
+        self.module_label = tk.Label(self.root, text="Modules per Year:")
+
         self.create_widgets()
 
     def create_widgets(self):
         tk.Label(self.root, text="Choose System Builder:").grid(row=0, column=0, sticky="w")
-        tk.Radiobutton(self.root, text='Multiple Years', variable=self.option, value='multiple').grid(row=1, column=0)
-        tk.Radiobutton(self.root, text='Add Year To Existing Folder', variable=self.option, value='single').grid(row=1, column=1)
+        tk.Radiobutton(self.root, text='Multiple Years', variable=self.option, value='multiple',
+                       command=self.on_selection_change).grid(row=1, column=0)
+        tk.Radiobutton(self.root, text='Add Year To Existing Folder', variable=self.option, value='single',
+                       command=self.on_selection_change).grid(row=1, column=1)
 
         tk.Label(self.root, text="Choose Base Directory:").grid(row=2, column=0, sticky="w")
         tk.Entry(self.root, textvariable=self.directoryLocation, width=40).grid(row=2, column=1)
         tk.Button(self.root, text="Browse", command=self.browse_directory).grid(row=2, column=2)
 
-        tk.Label(self.root, text="Number of Years:").grid(row=3, column=0, sticky="w")
+        self.year_label.grid(row=3, column=0, sticky="w")
         tk.Entry(self.root, textvariable=self.years).grid(row=3, column=1)
 
-        tk.Label(self.root, text="Modules per Year:").grid(row=4, column=0, sticky="w")
+        self.module_label.grid(row=4, column=0, sticky="w")
         tk.Entry(self.root, textvariable=self.modules).grid(row=4, column=1)
 
         tk.Label(self.root, text="Weeks per Module:").grid(row=5, column=0, sticky="w")
@@ -68,3 +77,11 @@ class FileSystemGUI:
         if university_path.exists():
             messagebox.showerror("Directory Exists", f"A 'University' folder already exists at:\n{university_path}\n\n")
             return
+
+    def on_selection_change(self):
+        if self.option.get() == 'multiple':
+            self.year_label.config(text="Number of Years:")
+            self.module_label.config(text="Modules per Year")
+        else:
+            self.year_label.config(text="Year to Add:")
+            self.module_label.config(text="Modules in the Year")
