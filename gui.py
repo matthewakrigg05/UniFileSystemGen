@@ -4,12 +4,6 @@ from pathlib import Path
 from utils import workingDirectory, courseContext
 from FSBuilders import courseFSBuilder
 
-"""
-Single year is to make a new year in existing dir
-
-Choose path -> modules, weeks, and year number
-"""
-
 
 # --- Tkinter GUI ---
 class FileSystemGUI:
@@ -26,24 +20,24 @@ class FileSystemGUI:
         self.create_widgets()
 
     def create_widgets(self):
-        tk.Label(self.root, text="Choose Base Directory:").grid(row=1, column=0, sticky="w")
-        tk.Radiobutton(self.root, text='Multiple Years', variable=self.option, value='multiple').grid(row=0, column=0)
-        tk.Radiobutton(self.root, text='Add Year To Existing Folder', variable=self.option, value='single').grid(row=0, column=1)
+        tk.Label(self.root, text="Choose System Builder:").grid(row=0, column=0, sticky="w")
+        tk.Radiobutton(self.root, text='Multiple Years', variable=self.option, value='multiple').grid(row=1, column=0)
+        tk.Radiobutton(self.root, text='Add Year To Existing Folder', variable=self.option, value='single').grid(row=1, column=1)
 
-        tk.Label(self.root, text="Choose Base Directory:").grid(row=1, column=0, sticky="w")
-        tk.Entry(self.root, textvariable=self.directoryLocation, width=40).grid(row=1, column=1)
-        tk.Button(self.root, text="Browse", command=self.browse_directory).grid(row=1, column=2)
+        tk.Label(self.root, text="Choose Base Directory:").grid(row=2, column=0, sticky="w")
+        tk.Entry(self.root, textvariable=self.directoryLocation, width=40).grid(row=2, column=1)
+        tk.Button(self.root, text="Browse", command=self.browse_directory).grid(row=2, column=2)
 
-        tk.Label(self.root, text="Number of sYears:").grid(row=2, column=0, sticky="w")
-        tk.Entry(self.root, textvariable=self.years).grid(row=2, column=1)
+        tk.Label(self.root, text="Number of Years:").grid(row=3, column=0, sticky="w")
+        tk.Entry(self.root, textvariable=self.years).grid(row=3, column=1)
 
-        tk.Label(self.root, text="Modules per Year:").grid(row=3, column=0, sticky="w")
-        tk.Entry(self.root, textvariable=self.modules).grid(row=3, column=1)
+        tk.Label(self.root, text="Modules per Year:").grid(row=4, column=0, sticky="w")
+        tk.Entry(self.root, textvariable=self.modules).grid(row=4, column=1)
 
-        tk.Label(self.root, text="Weeks per Module:").grid(row=4, column=0, sticky="w")
-        tk.Entry(self.root, textvariable=self.weeks).grid(row=4, column=1)
+        tk.Label(self.root, text="Weeks per Module:").grid(row=5, column=0, sticky="w")
+        tk.Entry(self.root, textvariable=self.weeks).grid(row=5, column=1)
 
-        tk.Button(self.root, text="Create Structure", command=self.create_structure).grid(row=5, column=1, pady=10)
+        tk.Button(self.root, text="Build!", command=self.create_structure).grid(row=6, column=1, pady=10)
 
     def create_structure(self):
         self.validate_inputs()
