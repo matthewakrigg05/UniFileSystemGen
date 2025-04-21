@@ -25,4 +25,6 @@ class YearFileSystemBuilder(FSBuilder):
             for week in range(1, self.course.weeks + 1):
                 (module_path / f"Week {week}").mkdir(exist_ok=True)
 
-        messagebox.showinfo("Success",f"Folder structure created successfully at:\n\n{year_path}")
+        messagebox.showinfo("Success",f"Folder structure created successfully at:\n\n{year_path}\n\nYou will be redirected there now!")
+
+        self.open_location(year_path)

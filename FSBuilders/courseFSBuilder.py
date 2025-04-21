@@ -39,4 +39,6 @@ class FullFileSystemBuilder(FSBuilder):
         for extra_folder in ["Other", "Clubs & Societies"]:
             (uni_dir / extra_folder).mkdir(exist_ok=True)
 
-        messagebox.showinfo("Success",f"Folder structure created successfully at:\n\n{uni_dir}")
+        messagebox.showinfo("Success",f"Folder structure created successfully at:\n\n{uni_dir}\n\nYou will be redirected there now!")
+
+        self.open_location(uni_dir)
