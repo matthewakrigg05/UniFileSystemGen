@@ -29,11 +29,16 @@ class FullFileSystemBuilder(FSBuilder):
                 module_path.mkdir(exist_ok=True)
 
                 # Add module subfolders
-                for subfolder in ["Coursework", "Notes", "Exam Prep"]:
+                for subfolder in ["Coursework", "Exam Prep"]:
                     (module_path / subfolder).mkdir(exist_ok=True)
 
                 for week in range(1, self.course.weeks + 1):
-                    (module_path / f"Week {week}").mkdir(exist_ok=True)
+                    week_path = (module_path / f"Week {week}")
+                    week_path.mkdir(exist_ok=True)
+
+                    for subfolder in ['Lectures', 'Seminar', 'Reading Material', 'Exercises and Practice',
+                                      'Notes']:
+                        (week_path / subfolder).mkdir(exist_ok=True)
 
         # Create other top-level folders
         for extra_folder in ["Other", "Clubs & Societies"]:

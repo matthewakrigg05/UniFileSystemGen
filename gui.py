@@ -1,6 +1,5 @@
 import tkinter as tk
 from tkinter import messagebox, filedialog
-from pathlib import Path
 from utils import workingDirectory, courseContext
 from FSBuilders import courseFSBuilder, yearFSBuilder
 
